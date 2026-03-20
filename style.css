@@ -1,0 +1,154 @@
+/* RESET */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* SECTION */
+.shadow-section {
+  background: #0f172a; /* deep navy */
+  padding: 80px 20px;
+  color: white;
+}
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* TITLE */
+h1 {
+  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* DESCRIPTION */
+.description {
+  max-width: 760px;
+  margin: 0 auto 50px;
+  color: #cbd5f5;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* ACCORDION */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.accordion-item {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+}
+
+.accordion-header {
+  width: 100%;
+  background: #1d2a44;
+  color: white;
+  border: none;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #243252;
+}
+
+.accordion-item.active .accordion-header {
+  background: #2a3b63;
+}
+
+.accordion-content {
+  display: none;
+  padding: 26px;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* CARD */
+.card {
+  min-height: 260px; /* taller for richer text */
+  position: relative;
+  cursor: pointer;
+}
+
+/* CARD SIDES */
+.front,
+.back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: all 0.4s ease;
+
+  /* STYLE */
+  background: linear-gradient(145deg, #2a1458, #341a6e); /* richer purple */
+  color: #ffffff;
+  border: 2px solid #d4af37; /* gold */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  line-height: 1.5;
+}
+
+/* BACK */
+.back {
+  display: none;
+}
+
+/* FLIP */
+.card.flip .front {
+  display: none;
+}
+
+.card.flip .back {
+  display: flex;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .shadow-section {
+    padding: 60px 16px;
+  }
+
+  .accordion-header {
+    font-size: 16px;
+    padding: 18px 20px;
+  }
+
+  .card {
+    min-height: 280px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+}
