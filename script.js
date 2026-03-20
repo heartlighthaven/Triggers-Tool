@@ -3,12 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".card");
 
   function sendHeightToParent() {
-    const height = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight
-    );
+    const height = document.documentElement.scrollHeight;
 
     window.parent.postMessage(
       {
@@ -23,22 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
     header.addEventListener("click", function () {
       const item = this.parentElement;
       item.classList.toggle("active");
-
-      setTimeout(sendHeightToParent, 250);
+      setTimeout(sendHeightToParent, 350);
     });
   });
 
   cards.forEach((card) => {
     card.addEventListener("click", function () {
       this.classList.toggle("flip");
-
-      setTimeout(sendHeightToParent, 250);
+      setTimeout(sendHeightToParent, 350);
     });
   });
 
-  window.addEventListener("load", sendHeightToParent);
-  window.addEventListener("resize", sendHeightToParent);
-
-  setTimeout(sendHeightToParent, 100);
-  setTimeout(sendHeightToParent, 500);
+  window.addEventListener("load", function () {
+    setTimeout(sendHeightToParent, 400);
+  });
 });
